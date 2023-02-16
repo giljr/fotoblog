@@ -15,7 +15,25 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+import authentication.views
+import blog.views
+
+from django.contrib.auth.views import LoginView, LogoutView, PasswordChangeView, PasswordChangeDoneView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('home/', blog.views.home, name='home'),
+    # path('', authentication.views.login_page, name='login'),
+    # path('', authentication.views.LoginPage.as_view(), name='login'),
+    path('', LoginView.as_view(
+        template_name='authentication/login.html',
+        redirect_authenticated_user=True,
+    ), name='login'),
+    # path('logout/', authentication.views.logout_user, name='logout'),
+    path('logout/', LogoutView.as_view(), name='logout'),
+    # path('change_password/', PasswordChangeView.as_view(template_name='authentication.password_change_form.html'), name = 'password_change')
+    # path('change_password_done/', PasswordChangeDoneView.as_view(template_name = 'authetication.PasswordChangeDone.html'), name='password_change_done')
+    path('signup/', authentication.views.signup_page, name='signup'),
+
+
 ]
