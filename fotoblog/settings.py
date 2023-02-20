@@ -56,7 +56,9 @@ ROOT_URLCONF = 'fotoblog.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [
+            BASE_DIR.joinpath('templates'),  # <--- add this line
+        ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -142,4 +144,10 @@ LOGIN_URL = 'login'
 # https://openclassrooms.com/en/courses/7107341-intermediate-django/7263527-create-a-login-page-with-class-based-views
 LOGIN_REDIRECT_URL = 'home'
 
-LOGOUT_REDIRECT_URL = 'login'
+LOGOUT_REDIRECT_URL = LOGIN_URL
+
+
+MEDIA_URL = '/media/'
+# import os
+# MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_ROOT = 'media/'

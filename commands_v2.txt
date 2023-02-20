@@ -1,0 +1,26 @@
+  412  cd Documents
+  414  cd python
+  416  cd django_projects/
+  419  mkdir fotoblog
+  420  cd fotoblog/
+  421  python -m venv ENV
+  423  source ENV/bin/activate
+  424  pip install django
+  425  pip freeze > requirements.txt
+  426  clear
+  427  django-admin startproject fotoblog .
+  429  python manage.py startapp authentication
+  430  python manage.py startapp blog
+  431  code .
+  435  python manage.py runserver
+  436  source /home/j3/Documents/python/django_projects/fotoblog/ENV/bin/activate
+  437  git tag -a v1.0 -m "Authentication - Django Bare structure - version 1.0"
+  439  tag show v1.0
+  444  git push origin v1.0
+  446  python manage.py makemigrations
+  447  python manage.py migrate
+  448  python manage.py runserver
+  452  clear
+  453  source ENV/bin/activate
+  454  python manage.py runserver
+  455  history > fotoblog_v2.txt
